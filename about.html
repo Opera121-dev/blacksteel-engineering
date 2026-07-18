@@ -99,23 +99,23 @@ h1,h2,h3{font-family:var(--font-heading);line-height:1.1;letter-spacing:-0.01em;
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease, transform .7s ease;}
 .reveal.in-view{opacity:1;transform:translateY(0);}
 
-/* ============ DATUM SCALE ============ */
-.datum-scale{position:fixed;left:0;top:0;height:100vh;width:64px;z-index:40;pointer-events:none;display:flex;align-items:center;}
-.datum-track{position:absolute;left:34px;top:90px;bottom:90px;width:1px;background:var(--line-on-paper);}
-body.is-hero-mode .datum-track{background:var(--line-on-blue);}
-.datum-tick{position:absolute;left:0;transform:translateY(-50%);display:flex;align-items:center;gap:0;}
-.datum-tick .dot{width:7px;height:7px;border-radius:50%;background:var(--steel-light);transition:background .3s ease, transform .3s ease;flex-shrink:0;}
-.datum-tick .label{writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--font-mono);font-size:10px;letter-spacing:0.12em;color:var(--steel);opacity:0;margin-left:14px;transition:opacity .3s ease, color .3s ease;white-space:nowrap;}
-.datum-tick.active .dot{background:var(--oxide);transform:scale(1.3);}
-.datum-tick.active .label{opacity:1;color:var(--oxide);font-weight:600;}
-body.is-hero-mode .datum-tick .label{color:var(--cyanline);}
-body.is-hero-mode .datum-tick .dot{background:rgba(175,216,250,0.5);}
-.datum-marker{position:absolute;left:34px;top:90px;width:11px;height:11px;transform:translate(-5px,-5px);transition:top .5s cubic-bezier(.65,0,.35,1);}
-.datum-marker svg{width:11px;height:11px;}
-.datum-elevation{position:absolute;left:52px;top:0;transform:translateY(-50%);font-family:var(--font-mono);font-size:10px;color:var(--oxide);white-space:nowrap;background:var(--paper);padding:2px 6px;border:1px solid var(--oxide);border-radius:var(--radius-sm);opacity:0.95;}
-body.is-hero-mode .datum-elevation{background:var(--blueprint);color:var(--cyanline);border-color:var(--cyanline);}
+/* ============ Blacksteel SCALE ============ */
+.Blacksteel-scale{position:fixed;left:0;top:0;height:100vh;width:64px;z-index:40;pointer-events:none;display:flex;align-items:center;}
+.Blacksteel-track{position:absolute;left:34px;top:90px;bottom:90px;width:1px;background:var(--line-on-paper);}
+body.is-hero-mode .Blacksteel-track{background:var(--line-on-blue);}
+.Blacksteel-tick{position:absolute;left:0;transform:translateY(-50%);display:flex;align-items:center;gap:0;}
+.Blacksteel-tick .dot{width:7px;height:7px;border-radius:50%;background:var(--steel-light);transition:background .3s ease, transform .3s ease;flex-shrink:0;}
+.Blacksteel-tick .label{writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--font-mono);font-size:10px;letter-spacing:0.12em;color:var(--steel);opacity:0;margin-left:14px;transition:opacity .3s ease, color .3s ease;white-space:nowrap;}
+.Blacksteel-tick.active .dot{background:var(--oxide);transform:scale(1.3);}
+.Blacksteel-tick.active .label{opacity:1;color:var(--oxide);font-weight:600;}
+body.is-hero-mode .Blacksteel-tick .label{color:var(--cyanline);}
+body.is-hero-mode .Blacksteel-tick .dot{background:rgba(175,216,250,0.5);}
+.Blacksteel-marker{position:absolute;left:34px;top:90px;width:11px;height:11px;transform:translate(-5px,-5px);transition:top .5s cubic-bezier(.65,0,.35,1);}
+.Blacksteel-marker svg{width:11px;height:11px;}
+.Blacksteel-elevation{position:absolute;left:52px;top:0;transform:translateY(-50%);font-family:var(--font-mono);font-size:10px;color:var(--oxide);white-space:nowrap;background:var(--paper);padding:2px 6px;border:1px solid var(--oxide);border-radius:var(--radius-sm);opacity:0.95;}
+body.is-hero-mode .Blacksteel-elevation{background:var(--blueprint);color:var(--cyanline);border-color:var(--cyanline);}
 .progress-mobile{position:fixed;top:0;left:0;height:2px;background:var(--oxide);width:0%;z-index:60;transition:width .1s linear;}
-@media (max-width:1023px){.datum-scale{display:none;}}
+@media (max-width:1023px){.Blacksteel-scale{display:none;}}
 
 /* ============ HEADER ============ */
 .site-header{position:fixed;top:0;left:0;right:0;z-index:50;padding:20px 0;transition:background .35s ease, padding .35s ease, border-color .35s ease;border-bottom:1px solid transparent;}
@@ -370,7 +370,7 @@ body.is-hero-mode .datum-elevation{background:var(--blueprint);color:var(--cyanl
   .reveal{opacity:1;transform:none;transition:none;}
   .draw-line{stroke-dashoffset:0;transition:none;}
   .draw-node{opacity:1;transform:scale(1);transition:none;}
-  .datum-marker{transition:none;}
+  .Blacksteel-marker{transition:none;}
   .work-card:hover{transform:none;}
   .faq-a{transition:none;}
 }
@@ -382,23 +382,23 @@ body.is-hero-mode .datum-elevation{background:var(--blueprint);color:var(--cyanl
 <a href="#main" class="skip-link">Skip to content</a>
 <div class="progress-mobile" id="progressMobile" aria-hidden="true"></div>
 
-<aside class="datum-scale" aria-hidden="true">
-  <div class="datum-track"></div>
-  <div class="datum-marker" id="datumMarker">
+<aside class="Blacksteel-scale" aria-hidden="true">
+  <div class="Blacksteel-track"></div>
+  <div class="Blacksteel-marker" id="BlacksteelMarker">
     <svg viewBox="0 0 11 11"><circle cx="5.5" cy="5.5" r="5" fill="var(--oxide)"/></svg>
-    <span class="datum-elevation" id="datumElevation">EL +0.0</span>
+    <span class="Blacksteel-elevation" id="BlacksteelElevation">EL +0.0</span>
   </div>
-  <div class="datum-tick" data-section="pagehero" style="top:0%"><span class="dot"></span><span class="label">INTRO</span></div>
-  <div class="datum-tick" data-section="story" style="top:20%"><span class="dot"></span><span class="label">STORY</span></div>
-  <div class="datum-tick" data-section="values" style="top:40%"><span class="dot"></span><span class="label">VALUES</span></div>
-  <div class="datum-tick" data-section="timeline" style="top:60%"><span class="dot"></span><span class="label">TIMELINE</span></div>
-  <div class="datum-tick" data-section="team" style="top:80%"><span class="dot"></span><span class="label">TEAM</span></div>
-  <div class="datum-tick" data-section="contact" style="top:100%"><span class="dot"></span><span class="label">END</span></div>
+  <div class="Blacksteel-tick" data-section="pagehero" style="top:0%"><span class="dot"></span><span class="label">INTRO</span></div>
+  <div class="Blacksteel-tick" data-section="story" style="top:20%"><span class="dot"></span><span class="label">STORY</span></div>
+  <div class="Blacksteel-tick" data-section="values" style="top:40%"><span class="dot"></span><span class="label">VALUES</span></div>
+  <div class="Blacksteel-tick" data-section="timeline" style="top:60%"><span class="dot"></span><span class="label">TIMELINE</span></div>
+  <div class="Blacksteel-tick" data-section="team" style="top:80%"><span class="dot"></span><span class="label">TEAM</span></div>
+  <div class="Blacksteel-tick" data-section="contact" style="top:100%"><span class="dot"></span><span class="label">END</span></div>
 </aside>
 
 <header class="site-header" id="siteHeader">
   <div class="container header-inner">
-    <a href="index.html" class="logo"><svg class="logo-mark" viewBox="0 0 28 28"><circle cx="14" cy="14" r="10.5"/><circle class="center" cx="14" cy="14" r="2"/><line class="tick" x1="14" y1="1.5" x2="14" y2="5.5"/></svg>DATUM</a>
+    <a href="index.html" class="logo"><svg class="logo-mark" viewBox="0 0 28 28"><circle cx="14" cy="14" r="10.5"/><circle class="center" cx="14" cy="14" r="2"/><line class="tick" x1="14" y1="1.5" x2="14" y2="5.5"/></svg>Blacksteel</a>
     <nav class="nav">
       <div class="nav-links" id="navLinks">
         <a href="index.html">Home</a>
@@ -417,7 +417,7 @@ body.is-hero-mode .datum-elevation{background:var(--blueprint);color:var(--cyanl
 
   <section class="page-hero" id="pagehero" data-elevation="0.0" data-hero-mode>
     <div class="container page-hero-inner">
-      <span class="eyebrow">About Datum</span>
+      <span class="eyebrow">About Blacksteel</span>
       <h1>Engineers first. Always.</h1>
       <p>We started as three engineers who thought structural work had gotten too far from the calculation. Eighteen years later, that's still the whole business.</p>
     </div>
@@ -430,7 +430,7 @@ body.is-hero-mode .datum-elevation{background:var(--blueprint);color:var(--cyanl
         <h2>Started at a kitchen table, not a boardroom.</h2>
       </div>
       <div class="reveal">
-        <p>Datum was founded in 2008 by a small group of structural engineers who'd spent their careers watching good buildings get value-engineered into risky ones. We wanted a firm where the calculation came before the client meeting, not after it.</p>
+        <p>Blacksteel was founded in 2008 by a small group of structural engineers who'd spent their careers watching good buildings get value-engineered into risky ones. We wanted a firm where the calculation came before the client meeting, not after it.</p>
         <p>Eighteen years on, we're still a licensed engineering practice first and a business second. We turn down work we can't stand behind, we show clients the math instead of asking them to trust the pitch, and we stay involved through construction instead of disappearing after the drawings are sealed.</p>
         <p>Today that approach covers structural design, seismic retrofit, bridges, and industrial facilities across twelve states — but the standard hasn't moved since the first project.</p>
       </div>
@@ -493,7 +493,7 @@ body.is-hero-mode .datum-elevation{background:var(--blueprint);color:var(--cyanl
           <div class="team-avatar">RA</div>
           <h3>R. Alvarez, PE</h3>
           <span class="team-role">Principal &amp; Founder</span>
-          <p>Twenty-two years in structural steel and seismic design before founding Datum in 2008.</p>
+          <p>Twenty-two years in structural steel and seismic design before founding Blacksteel in 2008.</p>
         </div>
         <div class="team-card">
           <div class="team-avatar">MO</div>
@@ -531,7 +531,7 @@ body.is-hero-mode .datum-elevation{background:var(--blueprint);color:var(--cyanl
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="index.html" class="logo"><svg class="logo-mark" viewBox="0 0 28 28"><circle cx="14" cy="14" r="10.5"/><circle class="center" cx="14" cy="14" r="2"/><line class="tick" x1="14" y1="1.5" x2="14" y2="5.5"/></svg>DATUM</a>
+        <a href="index.html" class="logo"><svg class="logo-mark" viewBox="0 0 28 28"><circle cx="14" cy="14" r="10.5"/><circle class="center" cx="14" cy="14" r="2"/><line class="tick" x1="14" y1="1.5" x2="14" y2="5.5"/></svg>Blacksteel</a>
         <p>Structural &amp; civil engineering. Licensed Professional Engineers, available for review on request.</p>
       </div>
       <div class="footer-col"><h4>Capabilities</h4>
@@ -543,11 +543,11 @@ body.is-hero-mode .datum-elevation{background:var(--blueprint);color:var(--cyanl
       <div class="footer-col footer-contact"><h4>Contact</h4>
         <p>412 Foundry Street, Suite 300<br>Portland, OR 97209</p>
         <p><a href="tel:+15035550148">(503) 555-0148</a></p>
-        <p><a href="mailto:projects@datumstructural.com">projects@datumstructural.com</a></p>
+        <p><a href="mailto:projects@Blacksteelstructural.com">projects@Blacksteelstructural.com</a></p>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2026 Datum Structural Engineering. All rights reserved.</p>
+      <p>© 2026 Blacksteel Structural Engineering. All rights reserved.</p>
       <p>EL +40.0 — END OF PAGE</p>
     </div>
   </div>
@@ -592,11 +592,11 @@ body.is-hero-mode .datum-elevation{background:var(--blueprint);color:var(--cyanl
   }, {passive:true});
   onScrollFrame();
 
-  // Datum scale: track active section via IntersectionObserver
+  // Blacksteel scale: track active section via IntersectionObserver
   var sections = Array.prototype.slice.call(document.querySelectorAll('[data-elevation]'));
-  var ticks = Array.prototype.slice.call(document.querySelectorAll('.datum-tick'));
-  var marker = document.getElementById('datumMarker');
-  var elevReadout = document.getElementById('datumElevation');
+  var ticks = Array.prototype.slice.call(document.querySelectorAll('.Blacksteel-tick'));
+  var marker = document.getElementById('BlacksteelMarker');
+  var elevReadout = document.getElementById('BlacksteelElevation');
   var body = document.body;
 
   if(sections.length && marker){
@@ -606,7 +606,7 @@ body.is-hero-mode .datum-elevation{background:var(--blueprint);color:var(--cyanl
           var id = entry.target.id;
           var idx = sections.indexOf(entry.target);
           ticks.forEach(function(t){ t.classList.remove('active'); });
-          var activeTick = document.querySelector('.datum-tick[data-section="'+id+'"]');
+          var activeTick = document.querySelector('.Blacksteel-tick[data-section="'+id+'"]');
           if(activeTick) activeTick.classList.add('active');
           var pct = sections.length > 1 ? idx / (sections.length - 1) : 0;
           marker.style.top = (pct * 100) + '%';
